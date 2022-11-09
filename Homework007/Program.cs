@@ -1,5 +1,5 @@
 ﻿// Написать программу, которая обменивает элементы первой строки и последней строки.
-void FillArray(int[,] array)
+void FillArray(int[,] array, int m)
 {
     for (int a = 0; a < array.GetLength(0); a++)
     {
@@ -21,31 +21,26 @@ void PrintArray(int[,] array)
     }
 }
 Console.WriteLine();
-int ResultArray(int[,] array)
+void ResultArray(int[,] array)
 {
-    int m = 0;
-    for (int a = 0; a < array.GetLength(1); a++)
+    int temp = 0;
+    int a = 0;
     {
-        m = array[array.GetLength(0) - 1, a];
-        array[array.GetLength(0) - 1, a] = array[0, a];
-        array[0, a] = m;
-    }
-        for (int a = 0; a < array.GetLength(0); a++)
-        {
-            for (int b = 0; b < array.GetLength(1); b++)
-            {   
-                Console.Write(array[a, b] + " ");
+        for (int b = 0; b < array.GetLength(1); b++)
+            {
+                temp = array[a,b];
+                array [a,b] = array[array.GetLength(0)-1, b];
+                array [array.GetLength(0)-1, b] = temp; 
             }
-        Console.WriteLine();
-        }
-    return m;
+    }
 }
 
 int a = 5;
 int b = 5;
 int[,] array = new int[a, b];
 
-FillArray(array);
+FillArray(array, a);
 PrintArray(array);
 Console.WriteLine();
 ResultArray(array);
+PrintArray(array);
