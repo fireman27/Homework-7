@@ -4,8 +4,6 @@ int lines = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine("введите количество столбцов");
 int columns = int.Parse(Console.ReadLine() ?? "0");
 int[,] numbers = new int[lines, columns];
-FillArrayNumbers(numbers);
-PrintArray(numbers);
 
 void FillArrayNumbers(int[,] array)
 {
@@ -29,3 +27,5 @@ void PrintArray(int[,] array)
         Console.WriteLine("");
     }
 }
+FillArrayNumbers(numbers);
+PrintArray(numbers);
