@@ -35,7 +35,7 @@ string Averagevalue(int[,] array)
             count++;
         }
         middle = summ / count;
-        Console.Write($"{middle} ");
+        result += ($"{middle} ");
     }
     return result;
 }
