@@ -24,29 +24,26 @@ void PrintArray(int[,] array)
 
 int Summ(int[,] array)
 {
-    int sum = 0;
     int minSum = 0;
-    int minNum = 0;
+    int index = 0;
     for (int a = 0; a < array.GetLength(0); a++)
     {
+        int sum = 0;
         for (int b = 0; b < array.GetLength(1); b++)
         {
-            if (a == 0) 
-            {
-                sum += array[a, b];
-                minSum += array[a, b]; 
-            }
-            else sum += array[a, b]; 
+            sum = sum + array[a, b];
         }
-        if (sum < minSum)
+        if (a == 0) 
+            minSum = sum;
+        else if (sum < minSum)
         {
             minSum = sum;
-            minNum = a;
+            index = a;
         }
-        sum = 0;
     }
-    return minNum;
+    return index;
 }
+
 int[,] array = new int[5, 5];
 FillArray(array);
 PrintArray(array);
